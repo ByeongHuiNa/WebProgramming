@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('img').attr({width: function(index) {
+                    return (index + 1) * 100;},
+                    height: 100
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <img src="자연/안개.jpg"/>
+        <img src="자연/하늘.jpg"/>
+        <img src="자연/햇빛.jpg"/>
+    </body>
+</html>
