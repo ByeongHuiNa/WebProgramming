@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>나의 세계여행 블로그</title>
+        <style>
+            #title {
+                margin-left: 400px;
+                text-align: center;
+                line-height: 50px;
+                border: 2px solid black;
+                width: 150px; height: 50px;
+            }
+            #body {
+                border: 2px solid black;
+                height: 700px;
+                margin-top: 30px;
+            }
+            hr { border-top:1px solid black; border-bottom:0px; }
+            #title1 {
+                
+                font-size: 30px;
+                left: 50px;
+                text-align: center;
+               
+                
+            }
+            #detail {
+                position: relative;
+                font-size: 30px;
+                left: 350px;
+            }
+            a {text-decoration: none; }
+            
+            #btn {
+                position: relative;
+                width: 80px;
+                font-size: 20px;
+                top: 140px;
+                right: 450px;
+                
+            }
+            p{
+                display: inline-block;
+                height: 0px;
+            }
+            #week {
+                
+                float: right;
+                right: 15px;
+            }
+            
+            body {  
+                background-image: url("여행/back.jpg");
+            }
+            #body {
+                margin-left: 400px;
+                width: 1000px;
+                text-align: center;
+                height: 900px;;
+            }
+            #body a{
+                display: block;
+                width: 100%; height: 100%;
+                overflow: hidden;
+            }
+            #menu {
+                border: 2px solid black;
+                margin-left: 400px;
+                width: 1000px;
+            }
+    
+        </style>
+        
+        <script>
+            
+            var num = 1;
+            var titlenum=0;
+            function changePic(idx) {
+                if(idx) {
+                if (num == 4) return;
+                num++;
+                titlenum++;
+                }else {
+                if(num == 1) return;
+                num--;
+                titlenum--;
+                }
+                var title = ["구글어스로 본 에펠탑 모습", "마르스 광장 모습","센강에서 본 에펠탑", "에펠탑 야경"];
+                var imgTag = document.getElementById("photo");
+                imgTag.setAttribute("src", "여행/img"+num+".jpg");
+                imgTag.setAttribute("width", "400");
+                imgTag.setAttribute("height", "500");
+                imgTag.setAttribute("title", title[titlenum]);
+                document.getElementById("index").innerText=num;
+                }
+            
+            var cnt = 0;
+            function increase() {
+                cnt=cnt+1;
+                document.getElementById("btn").innerText="공감"+cnt;
+                
+            }
+            function select() {
+                var val = document.getElementById("sel").selectedIndex;
+                var menu=document.getElementById("menu");
+                
+                if(val==1){  
+                    menu.innerHTML=`<p><strong>글목록</strong></p><p><select id="sel" onchange="select()"><option value="1">글종류</option><option value="2">여행계획</option><option value="3">여행후기</option></select></p> <p id ="week"><strong>작성일</strong></p><hr>
+                    <a href="before.html"><p id ="dda">프랑스 파리 여행계획</p></a><p id="week">0000.00.00</p><hr>
+                    <a href="before1.html"><p>여행계획1</p></a><p id="week">0000.00.00</p><hr>
+                    <a href="before2.html"><p>여행계획2</p></a> <p id="week">0000.00.00</p><hr>`;
+                } else if (val==2){ 
+                    menu.innerHTML=`<p><strong>글목록</strong></p><p><select name="sel" onchange="select()"><option value="1">글종류</option><option value="2">여행계획</option><option value="3">여행후기</option></select></p> <p id ="week"><strong>작성일</strong></p><hr>
+                    <a href="after.html"><p id ="dda">프랑스 파리 여행후기</p></a><p id="week">0000.00.00</p><hr>
+                    <a href="after1.html"><p>여행후기1</p></a><p id="week">0000.00.00</p><hr>
+                    <a href="after2.html"><p>여행후기2</p></a> <p id="week">0000.00.00</p><hr>`;
+                }   
+          } 
+                          
+        </script>
+        
+    </head>
+    <body onload="select()">
+            <div id = "title">
+                <a href="after.html"><strong>나의 세계여행</strong></a>
+            </div>
+            <div id="menu">
+                <p><strong>글목록</strong></p><p><select id="sel" onchange="select()"><option value="1">글종류<option value="2">여행계획<option value="3">여행후기</select></p> <p id ="week"><strong>작성일</strong></p><hr>
+                <a href="before.html"><p id ="dda">프랑스 파리 여행계획</p></a><p id="week">0000.00.00</p><hr>
+                <a href="before1.html"><p>여행계획1</p></a><p id="week">0000.00.00</p><hr>
+                <a href="before2.html"><p>여행계획2</p></a> <p id="week">0000.00.00</p><hr>
+            </div>
+            <div id="body">
+                <h2>프랑스 파리 여행 계획</h2>
+                <hr>
+                <div id = "pizza"><img id ="photo" src="여행/img1.jpg" width="400" height="500" border="2" title="구글어스로 본 에펠탑 모습">
+                </div>
+                <div>      
+                    <p>
+                        <button onclick="changePic(0);">이전</button>
+                        <button id="index">1</button>
+                        <button onclick="changePic(1);">다음</button>
+                        <h1>(여행계획 설명)</h1>
+                        <button id="btn" onclick="increase()">공감0</button>
+                    </p>
+                </div>
+               
+            </div>
+    </body>
+</html>
